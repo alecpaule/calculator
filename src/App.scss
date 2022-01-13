@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+.App {
+  background-image: url(./gradient2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  text-align: center;
+}
