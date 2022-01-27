@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./gradient3.png);
+  background-image: url(./gradient.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -22,8 +22,9 @@ body {
 }
 
 section {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
   width: 500px;
   height: 700px;
   background: rgba(255, 255, 255, 0.15);
@@ -34,30 +35,39 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.42);
 
   h1 {
+    height: 70px;
+    grid-column: 1/5;
     text-align: end;
-    padding-right: 20px;
+    padding-right: 15px;
     color: rgba(240, 248, 255, 0.831);
     font-size: 60px;
     font-family: "Roboto Mono", monospace;
   }
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
 
   button {
-    text-align: center;
     padding: 0px;
     border: 0px;
     height: 70px;
     width: 70px;
     background-color: transparent;
-    border-color: transparent;
-    color: rgba(240, 248, 255, 0.831);
+    border-color: white;
+    color: #f0f8ffd4;
     font-size: 60px;
     font-family: "Roboto Mono", monospace;
     cursor: pointer;
+  }
+
+  .specialCharacter {
+    color: #f5d800d4;
+  }
+
+  .zeroButton {
+    grid-column: 2;
+  }
+
+  .equalsButton {
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f5d800d4;
   }
 }
