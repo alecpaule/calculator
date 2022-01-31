@@ -13,7 +13,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./gradient.png);
+  // background-image: url(./gradient.png);
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,6 +25,7 @@ body {
 section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center; //start is default
   gap: 1em;
   width: 500px;
   height: 700px;
@@ -69,6 +71,8 @@ section {
 
   .equalsButton {
     text-align: center;
+    line-height: 100%;
+    
     border-radius: 50%;
     background-color: #f5d800d4;
   }
