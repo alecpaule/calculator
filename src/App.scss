@@ -13,8 +13,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-image: url(./gradient.png);
-  background-color: black;
+  background-image: url(./gradient.png);
+  // background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -72,7 +72,7 @@ section {
   .equalsButton {
     text-align: center;
     line-height: 100%;
-    
+
     border-radius: 50%;
     background-color: #f5d800d4;
   }
