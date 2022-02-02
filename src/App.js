@@ -26,6 +26,18 @@ function App() {
     }
   };
 
+  const handleSetSign = () => {
+    if (operand.indexOf("-") == -1) {
+      // if the operand is positive, set it to negative
+      setOperand("-" + operand);
+      setDisplay("-" + operand);
+    } else {
+      // if the operand is negative, set it to positive
+      setOperand(operand.substring(1));
+      setDisplay(operand.substring(1));
+    }
+  };
+
   const config = {};
   const math = create(all, config);
 
@@ -43,7 +55,7 @@ function App() {
         >
           c
         </button>
-        <button className="operatorButton" onClick={() => console.log("±")}>
+        <button className="operatorButton" onClick={() => handleSetSign()}>
           ±
         </button>
         <button className="operatorButton" onClick={() => console.log("%")}>
