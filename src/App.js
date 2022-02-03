@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./App.scss";
-import { create, all } from "mathjs";
+import { create, all, evaluate } from "mathjs";
 
 function App() {
   const [display, setDisplay] = useState("");
-  const [operand, setOperand] = useState("");
   const [firstOperand, setFirstOperand] = useState("");
+  const [operand, setOperand] = useState("");
   const [operator, setOperator] = useState("");
+  const [isSelected, setIsSelected] = useState(false);
 
   const addToOperand = (digit) => {
     if (operand.length < 10) {
@@ -38,6 +39,16 @@ function App() {
     }
   };
 
+  const evaluateExpression = () => {
+    if (firstOperand && operand) {
+      const result = math.evaluate(firstOperand + operator + operand);
+      setDisplay(math.format(result, { precision: 6 }));
+      setFirstOperand(result);
+      console.log(firstOperand + operator + operand + "=" + result);
+    }
+  };
+
+  // https://mathjs.org/index.html
   const config = {};
   const math = create(all, config);
 
@@ -62,11 +73,13 @@ function App() {
           %
         </button>
         <button
-          className="operatorButton"
+          className={`operatorButton ${isSelected ? "isSelected" : ""}`}
           onClick={() => {
+            console.log("/");
             handleSetOperands();
             setOperator("/");
-            console.log("/");
+            setIsSelected(!isSelected);
+            evaluateExpression();
           }}
         >
           /
@@ -77,9 +90,10 @@ function App() {
         <button
           className="operatorButton"
           onClick={() => {
+            console.log("*");
             handleSetOperands();
             setOperator("*");
-            console.log("*");
+            evaluateExpression();
           }}
         >
           *
@@ -90,9 +104,10 @@ function App() {
         <button
           className="operatorButton"
           onClick={() => {
+            console.log("-");
             handleSetOperands();
             setOperator("-");
-            console.log("-");
+            evaluateExpression();
           }}
         >
           -
@@ -103,9 +118,10 @@ function App() {
         <button
           className="operatorButton"
           onClick={() => {
+            console.log("+");
             handleSetOperands();
             setOperator("+");
-            console.log("+");
+            evaluateExpression();
           }}
         >
           +
@@ -117,10 +133,7 @@ function App() {
         <button
           className="equalsButton"
           onClick={() => {
-            const result = math.evaluate(firstOperand + operator + operand);
-            setDisplay(math.format(result, { precision: 7 }));
-            setFirstOperand(result);
-            console.log(firstOperand + operator + operand + "=" + result);
+            evaluateExpression();
           }}
         >
           =

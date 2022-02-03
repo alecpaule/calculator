@@ -13,8 +13,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./gradient.png);
-  // background-color: black;
+  // background-image: url(./gradient.png);
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -42,7 +42,6 @@ section {
     height: 80px;
     grid-column: 1/5;
     text-align: end;
-    padding-right: 15px;
     color: rgba(240, 248, 255, 0.831);
     font-size: 70px;
     font-family: "Roboto Mono", monospace;
@@ -59,10 +58,15 @@ section {
     font-size: 50px;
     font-family: "Roboto Mono", monospace;
     cursor: pointer;
+    border-radius: 50%;
   }
 
-  .operator {
+  .operatorButton {
     color: #f5d800d4;
+
+    .isSelected {
+      color: green;
+    }
   }
 
   .zeroButton {
@@ -72,8 +76,6 @@ section {
   .equalsButton {
     text-align: center;
     line-height: 100%;
-
-    border-radius: 50%;
     background-color: #f5d800d4;
   }
 }
