@@ -61,13 +61,46 @@ section {
     border-radius: 50%;
   }
 
+  // button:nth-child(2n) {
+  //   background-color: red !important;
+  //   // color: red;
+  // }
+
   .operatorButton {
     color: #f5d800d4;
 
-    .isSelected {
+    &.isSelected {
       color: green;
     }
   }
+
+  // h1::before {
+  //   content: '';
+  //   display: inline-block;
+  //   width: 15px;
+  //   height: 65%;
+  //   border-left: 1px solid orange;
+  //   border-top: 1px solid orange;
+  //   border-bottom: 1px solid orange;
+  // }
+
+  // h1::after {
+  //   content: '';
+  //   display: inline-block;
+  //   width: 15px;
+  //   height: 65%;
+  //   border-right: 1px solid orange;
+  //   border-top: 1px solid orange;
+  //   border-bottom: 1px solid orange;
+  // }
+
+  /*
+  :checked
+  :first
+  :nth-child
+  :hover - ex when you hover your mouse over a button
+  :active - ex. when you click on button
+  */
 
   .zeroButton {
     grid-column: 2;
