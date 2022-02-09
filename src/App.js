@@ -11,23 +11,23 @@ const OperatorButton = ({ onClick, operatorText, isSelected }) => (
   </button>
 );
 
-const OperandButton = ({ number, addToOperand }) => (
-  <button onClick={() => addToOperand(`${number}`)}>number</button>
-);
-
 function App() {
   const [display, setDisplay] = useState("");
   const [firstOperand, setFirstOperand] = useState("");
   const [operand, setOperand] = useState("");
   const [operator, setOperator] = useState("");
-  // const [isSelected, setIsSelected] = useState(false);
-  // const [selectedOperator, setSelectedOperator] = useState("");
 
   const addToOperand = (digit) => {
     if (operand.length < 10) {
       setOperand(operand + digit);
       setDisplay(operand + digit);
     }
+  };
+
+  const onClickOperator = (operator) => {
+    handleSetOperands();
+    setOperator(operator);
+    evaluateExpression();
   };
 
   const handleSetOperands = () => {
@@ -53,6 +53,13 @@ function App() {
     }
   };
 
+  const handleSetPercent = () => {
+    if (operand.indexOf("%") === -1) {
+      setOperand(operand + "%");
+      setDisplay(operand + "%");
+    }
+  };
+
   const evaluateExpression = () => {
     if (firstOperand && operand) {
       const result = math.evaluate(firstOperand + operator + operand);
@@ -60,12 +67,6 @@ function App() {
       setFirstOperand(result);
       console.log(firstOperand + operator + operand + "=" + result);
     }
-  };
-
-  const onClickOperator = (operator) => {
-    handleSetOperands();
-    setOperator(operator);
-    evaluateExpression();
   };
 
   // https://mathjs.org/index.html
@@ -82,6 +83,7 @@ function App() {
             setDisplay("");
             setOperand("");
             setFirstOperand("");
+            setOperator("");
           }}
         >
           c
@@ -89,45 +91,25 @@ function App() {
         <button className="operatorButton" onClick={() => handleSetSign()}>
           ±
         </button>
-        <button className="operatorButton" onClick={() => console.log("%")}>
+        <button className="operatorButton" onClick={() => handleSetPercent()}>
           %
         </button>
-        <button
-          // className={`operatorButton ${isSelected ? "isSelected" : ""}`}
-          className={"operatorButton " + (operator === "/" ? "isSelected" : "")}
-          onClick={() => {
-            console.log("/");
-            handleSetOperands();
-            setOperator("/");
-            // setIsSelected(!isSelected);
-            evaluateExpression();
-          }}
-        >
-          /
-        </button>
+        <OperatorButton
+          onClick={() => onClickOperator("/")}
+          operatorText={"/"}
+          isSelected={operator === "/"}
+        />
         <button onClick={() => addToOperand("7")}>7</button>
         <button onClick={() => addToOperand("8")}>8</button>
         <button onClick={() => addToOperand("9")}>9</button>
-        <button
-          className={"operatorButton " + (operator === "*" ? "isSelected" : "")}
-          onClick={() => {
-            console.log("*");
-            handleSetOperands();
-            setOperator("*");
-            evaluateExpression();
-          }}
-        >
-          *
-        </button>
+        <OperatorButton
+          onClick={() => onClickOperator("*")}
+          operatorText={"*"}
+          isSelected={operator === "*"}
+        />
         <button onClick={() => addToOperand("4")}>4</button>
         <button onClick={() => addToOperand("5")}>5</button>
         <button onClick={() => addToOperand("6")}>6</button>
-        {/* <button
-          className={"operatorButton " + (operator === "-" ? "isSelected" : "")}
-          onClick={() => onClickOperator("-")}
-        >
-          -
-        </button> */}
         <OperatorButton
           onClick={() => onClickOperator("-")}
           operatorText={"-"}
@@ -136,18 +118,11 @@ function App() {
         <button onClick={() => addToOperand("1")}>1</button>
         <button onClick={() => addToOperand("2")}>2</button>
         <button onClick={() => addToOperand("3")}>3</button>
-        <button
-          className={"operatorButton " + (operator === "+" ? "isSelected" : "")}
-          onClick={() => {
-            console.log("+");
-            // setSelectedOperator("+");
-            handleSetOperands();
-            setOperator("+");
-            evaluateExpression();
-          }}
-        >
-          +
-        </button>
+        <OperatorButton
+          onClick={() => onClickOperator("+")}
+          operatorText={"+"}
+          isSelected={operator === "+"}
+        />
         <button className="zeroButton" onClick={() => addToOperand("0")}>
           0
         </button>
@@ -155,7 +130,7 @@ function App() {
         <button
           className="equalsButton"
           onClick={() => {
-            evaluateExpression();
+            onClickOperator("");
           }}
         >
           =

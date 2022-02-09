@@ -13,8 +13,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-image: url(./gradient.png);
-  background-color: black;
+  background-image: url(./gradient.png);
+  // background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25,7 +25,7 @@ body {
 section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-items: center; //start is default
+  justify-items: center;
   gap: 1em;
   width: 500px;
   height: 700px;
@@ -42,7 +42,7 @@ section {
     height: 80px;
     grid-column: 1/5;
     text-align: end;
-    color: rgba(240, 248, 255, 0.831);
+    color: rgba(240, 248, 255, 0.83);
     font-size: 70px;
     font-family: "Roboto Mono", monospace;
   }
@@ -54,53 +54,28 @@ section {
     height: 60px;
     width: 60px;
     background-color: transparent;
-    color: #f0f8ffd4;
+    color: rgba(240, 248, 255, 0.83);
     font-size: 50px;
     font-family: "Roboto Mono", monospace;
     cursor: pointer;
     border-radius: 50%;
   }
 
-  // button:nth-child(2n) {
-  //   background-color: red !important;
-  //   // color: red;
-  // }
-
-  .operatorButton {
-    color: #f5d800d4;
-
-    &.isSelected {
-      color: green;
-    }
+  button:hover {
+    background-color: rgba(245, 245, 245, 0.185);
   }
 
-  // h1::before {
-  //   content: '';
-  //   display: inline-block;
-  //   width: 15px;
-  //   height: 65%;
-  //   border-left: 1px solid orange;
-  //   border-top: 1px solid orange;
-  //   border-bottom: 1px solid orange;
-  // }
+  button:active {
+    background-color: rgba(245, 245, 245, 0.322);
+  }
 
-  // h1::after {
-  //   content: '';
-  //   display: inline-block;
-  //   width: 15px;
-  //   height: 65%;
-  //   border-right: 1px solid orange;
-  //   border-top: 1px solid orange;
-  //   border-bottom: 1px solid orange;
-  // }
+  .operatorButton {
+    color: rgba(245, 216, 0, 0.83);
 
-  /*
-  :checked
-  :first
-  :nth-child
-  :hover - ex when you hover your mouse over a button
-  :active - ex. when you click on button
-  */
+    &.isSelected {
+      background-color: rgba(245, 245, 245, 0.185);
+    }
+  }
 
   .zeroButton {
     grid-column: 2;
@@ -109,6 +84,14 @@ section {
   .equalsButton {
     text-align: center;
     line-height: 100%;
-    background-color: #f5d800d4;
+    background-color: rgba(245, 216, 0, 0.83);
+  }
+
+  .equalsButton:hover {
+    background-color: rgba(245, 216, 0, 0.89);
+  }
+
+  .equalsButton:active {
+    background-color: rgba(245, 216, 0, 0.97);
   }
 }
