@@ -59,14 +59,14 @@ section {
     font-family: "Roboto Mono", monospace;
     cursor: pointer;
     border-radius: 50%;
-  }
 
-  button:hover {
-    background-color: rgba(245, 245, 245, 0.185);
-  }
+    &:hover {
+      background-color: rgba(245, 245, 245, 0.185);
+    }
 
-  button:active {
-    background-color: rgba(245, 245, 245, 0.322);
+    &:active {
+      background-color: rgba(245, 245, 245, 0.322);
+    }
   }
 
   .operatorButton {
@@ -74,6 +74,10 @@ section {
 
     &.isSelected {
       background-color: rgba(245, 245, 245, 0.185);
+
+      &:active {
+        background-color: rgba(245, 245, 245, 0.322);
+      }
     }
   }
 
@@ -85,13 +89,13 @@ section {
     text-align: center;
     line-height: 100%;
     background-color: rgba(245, 216, 0, 0.83);
-  }
 
-  .equalsButton:hover {
-    background-color: rgba(245, 216, 0, 0.89);
-  }
+    &:hover {
+      background-color: rgba(245, 216, 0, 0.89);
+    }
 
-  .equalsButton:active {
-    background-color: rgba(245, 216, 0, 0.97);
+    &:active {
+      background-color: rgba(245, 216, 0, 0.97);
+    }
   }
 }
