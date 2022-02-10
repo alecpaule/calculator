@@ -54,7 +54,7 @@ function App() {
   };
 
   const handleSetPercent = () => {
-    if (operand.indexOf("%") === -1) {
+    if (operand.indexOf("%") === -1 && operand.length > 0) {
       setOperand(operand + "%");
       setDisplay(operand + "%");
     }
